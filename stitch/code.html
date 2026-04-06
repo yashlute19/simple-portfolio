@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Neon Curator | Full Stack Developer</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&amp;family=Space+Grotesk:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary": "#00363a",
+                    "inverse-on-surface": "#313030",
+                    "inverse-primary": "#ae0097",
+                    "on-tertiary-fixed-variant": "#004f54",
+                    "on-secondary": "#3c0090",
+                    "primary-fixed-dim": "#ffade5",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-tint": "#ffade5",
+                    "on-tertiary-fixed": "#002022",
+                    "on-secondary-container": "#ddcdff",
+                    "tertiary-fixed": "#7df4ff",
+                    "on-primary-container": "#59004c",
+                    "surface-bright": "#3a3939",
+                    "secondary-container": "#7000ff",
+                    "on-secondary-fixed-variant": "#5700c9",
+                    "on-surface-variant": "#dcbed0",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-primary-fixed-variant": "#850073",
+                    "primary-fixed": "#ffd7ef",
+                    "surface": "#131313",
+                    "surface-dim": "#131313",
+                    "on-surface": "#e5e2e1",
+                    "outline": "#a48999",
+                    "error": "#ffb4ab",
+                    "on-error-container": "#ffdad6",
+                    "primary-container": "#ff3cde",
+                    "tertiary-container": "#00a4af",
+                    "background": "#131313",
+                    "tertiary": "#00dbe9",
+                    "on-tertiary-container": "#003336",
+                    "secondary": "#d1bcff",
+                    "primary": "#ffade5",
+                    "surface-container": "#201f1f",
+                    "secondary-fixed": "#e9ddff",
+                    "error-container": "#93000a",
+                    "surface-container-high": "#2a2a2a",
+                    "secondary-fixed-dim": "#d1bcff",
+                    "on-background": "#e5e2e1",
+                    "inverse-surface": "#e5e2e1",
+                    "on-secondary-fixed": "#23005b",
+                    "surface-container-highest": "#353534",
+                    "on-error": "#690005",
+                    "on-primary": "#5e0051",
+                    "outline-variant": "#56404e",
+                    "on-primary-fixed": "#3a0031",
+                    "surface-variant": "#353534",
+                    "tertiary-fixed-dim": "#00dbe9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #131313;
+            scroll-behavior: smooth;
+        }
+        .light-leak {
+            filter: blur(120px);
+            z-index: -1;
+            pointer-events: none;
+        }
+        .glass-card {
+            background: rgba(53, 53, 52, 0.4);
+            backdrop-filter: blur(24px);
+        }
+        .perspective-grid {
+            mask-image: linear-gradient(to bottom, transparent, black 40%, black 60%, transparent);
+        }
+    </style>
+</head>
+<body class="font-body text-on-surface selection:bg-primary-container selection:text-white overflow-x-hidden">
+<!-- Background Light Leaks -->
+<div class="fixed inset-0 overflow-hidden pointer-events-none">
+<div class="light-leak absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-secondary-container/10 rounded-full"></div>
+<div class="light-leak absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-tertiary-container/10 rounded-full"></div>
+</div>
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/40 dark:bg-neutral-900/40 backdrop-blur-xl flex justify-between items-center px-8 py-4 max-w-full">
+<div class="text-xl font-bold tracking-tighter text-on-surface dark:text-white font-headline uppercase">
+            The Neon Curator
+        </div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-primary dark:text-pink-400 font-bold border-b-2 border-cyan-400 pb-1 font-space-grotesk tracking-tighter uppercase text-sm hover:scale-105 hover:backdrop-brightness-125 transition-all duration-400" href="#home">Home</a>
+<a class="text-on-surface-variant dark:text-neutral-400 hover:text-white transition-colors font-space-grotesk tracking-tighter uppercase text-sm hover:scale-105 hover:backdrop-brightness-125 transition-all duration-400" href="#experience">Experience</a>
+<a class="text-on-surface-variant dark:text-neutral-400 hover:text-white transition-colors font-space-grotesk tracking-tighter uppercase text-sm hover:scale-105 hover:backdrop-brightness-125 transition-all duration-400" href="#tech">Tech Stack</a>
+<a class="text-on-surface-variant dark:text-neutral-400 hover:text-white transition-colors font-space-grotesk tracking-tighter uppercase text-sm hover:scale-105 hover:backdrop-brightness-125 transition-all duration-400" href="#projects">Projects</a>
+<a class="text-on-surface-variant dark:text-neutral-400 hover:text-white transition-colors font-space-grotesk tracking-tighter uppercase text-sm hover:scale-105 hover:backdrop-brightness-125 transition-all duration-400" href="#contact">Contact</a>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-xl font-headline font-bold text-sm hover:scale-105 transition-transform duration-400">
+            Let's Talk
+        </button>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed left-6 top-1/2 -translate-y-1/2 rounded-full py-6 w-14 bg-surface-variant/40 dark:bg-neutral-800/40 backdrop-blur-2xl flex flex-col items-center gap-8 shadow-2xl shadow-pink-500/10 z-40 hidden lg:flex">
+<a class="text-neutral-500 hover:text-pink-400 hover:scale-110 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="link">link</span>
+</a>
+<a class="text-neutral-500 hover:text-pink-400 hover:scale-110 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+</a>
+<a class="text-neutral-500 hover:text-pink-400 hover:scale-110 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="palette">palette</span>
+</a>
+<a class="text-neutral-500 hover:text-pink-400 hover:scale-110 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</a>
+</aside>
+<main>
+<!-- 1. HERO / HOME -->
+<section class="min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-6 pt-20" id="home">
+<!-- Simulated 3D Background with CSS Shapes -->
+<div class="absolute inset-0 z-0 pointer-events-none opacity-40">
+<div class="absolute top-1/4 left-1/4 w-32 h-32 border border-primary/20 rotate-45 animate-pulse"></div>
+<div class="absolute bottom-1/4 right-1/4 w-48 h-48 border border-tertiary/20 rounded-full animate-bounce" style="animation-duration: 10s"></div>
+<div class="absolute top-1/2 left-1/2 w-64 h-64 border border-secondary/10 -translate-x-1/2 -translate-y-1/2 animate-spin" style="animation-duration: 20s"></div>
+</div>
+<div class="relative z-10 text-center max-w-5xl">
+<span class="font-headline text-tertiary tracking-[0.5em] uppercase text-sm mb-6 block opacity-80">Portfolio 2024</span>
+<h1 class="font-headline text-7xl md:text-9xl font-bold tracking-tighter leading-tight mb-6">
+<span class="bg-gradient-to-r from-primary to-primary-container bg-clip-text text-transparent">NEON</span><br/>
+<span class="text-on-surface">CURATOR</span>
+</h1>
+<p class="font-headline text-lg md:text-2xl text-on-surface-variant max-w-2xl mx-auto font-light leading-relaxed">
+                    Full Stack Developer &amp; Creative Technologist bridging the gap between <span class="text-secondary">high-end art</span> and <span class="text-tertiary">precision engineering</span>.
+                </p>
+<div class="mt-12 flex flex-wrap justify-center gap-6">
+<button class="bg-primary-container hover:scale-105 transition-all text-white px-8 py-4 rounded-xl font-headline font-bold flex items-center gap-2">
+                        View Projects <span class="material-symbols-outlined" data-icon="arrow_outward">arrow_outward</span>
+</button>
+<button class="border border-outline-variant/30 hover:border-outline-variant transition-all text-on-surface px-8 py-4 rounded-xl font-headline font-bold">
+                        Download CV
+                    </button>
+</div>
+</div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce flex flex-col items-center opacity-50">
+<span class="font-label text-[10px] uppercase tracking-widest mb-2">Scroll</span>
+<span class="material-symbols-outlined" data-icon="keyboard_double_arrow_down">keyboard_double_arrow_down</span>
+</div>
+</section>
+<!-- 2. EXPERIENCE -->
+<section class="min-h-screen py-32 px-6 lg:px-24 bg-surface-container-lowest relative" id="experience">
+<div class="mb-24 flex flex-col items-start max-w-4xl">
+<h2 class="font-headline text-5xl md:text-7xl font-bold tracking-tighter mb-8 leading-none">
+                    JOURNEY <br/> <span class="text-secondary">&amp; MILESTONES</span>
+</h2>
+<div class="w-24 h-1 bg-tertiary"></div>
+</div>
+<div class="relative max-w-6xl mx-auto space-y-12">
+<!-- Timeline Line -->
+<div class="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-secondary to-tertiary opacity-30"></div>
+<!-- RoadX Card -->
+<div class="relative flex flex-col md:flex-row items-center justify-between md:odd:flex-row-reverse group">
+<div class="hidden md:block w-[45%]"></div>
+<div class="absolute left-[-4px] md:left-1/2 md:-translate-x-1/2 w-2 h-2 bg-primary rounded-full z-10 shadow-[0_0_10px_#ffade5]"></div>
+<div class="glass-card p-10 rounded-3xl w-full md:w-[45%] transition-all duration-500 hover:scale-[1.02] border-l-4 border-primary">
+<span class="text-primary font-headline text-xs font-bold tracking-widest uppercase block mb-2">2023 - Present</span>
+<h3 class="text-3xl font-headline font-bold mb-4">RoadX</h3>
+<p class="text-tertiary font-headline text-sm font-semibold mb-6">Backend Intern</p>
+<p class="text-on-surface-variant leading-relaxed">Developing scalable microservices and optimizing data pipelines for automated logistics. Focused on high-concurrency systems and API architecture.</p>
+</div>
+</div>
+<!-- Insight Card -->
+<div class="relative flex flex-col md:flex-row items-center justify-between md:odd:flex-row-reverse group">
+<div class="hidden md:block w-[45%]"></div>
+<div class="absolute left-[-4px] md:left-1/2 md:-translate-x-1/2 w-2 h-2 bg-secondary rounded-full z-10 shadow-[0_0_10px_#d1bcff]"></div>
+<div class="glass-card p-10 rounded-3xl w-full md:w-[45%] transition-all duration-500 hover:scale-[1.02] border-l-4 border-secondary">
+<span class="text-secondary font-headline text-xs font-bold tracking-widest uppercase block mb-2">2022 - 2023</span>
+<h3 class="text-3xl font-headline font-bold mb-4">Insight</h3>
+<p class="text-tertiary font-headline text-sm font-semibold mb-6">Event Platform Developer</p>
+<p class="text-on-surface-variant leading-relaxed">Architected the core engine for a real-time event booking system. Implemented seamless UI transitions and complex state management.</p>
+</div>
+</div>
+<!-- IT Coordinator Card -->
+<div class="relative flex flex-col md:flex-row items-center justify-between md:odd:flex-row-reverse group">
+<div class="hidden md:block w-[45%]"></div>
+<div class="absolute left-[-4px] md:left-1/2 md:-translate-x-1/2 w-2 h-2 bg-tertiary rounded-full z-10 shadow-[0_0_10px_#00dbe9]"></div>
+<div class="glass-card p-10 rounded-3xl w-full md:w-[45%] transition-all duration-500 hover:scale-[1.02] border-l-4 border-tertiary">
+<span class="text-tertiary font-headline text-xs font-bold tracking-widest uppercase block mb-2">2021 - 2022</span>
+<h3 class="text-3xl font-headline font-bold mb-4">Institutional IT</h3>
+<p class="text-tertiary font-headline text-sm font-semibold mb-6">IT Coordinator</p>
+<p class="text-on-surface-variant leading-relaxed">Managed digital infrastructure and automated internal reporting workflows. Streamlined tech operations for over 500+ users.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. TECH STACK -->
+<section class="min-h-screen py-32 px-6 lg:px-24 bg-surface relative" id="tech">
+<div class="text-center mb-24">
+<h2 class="font-headline text-6xl font-bold tracking-tighter mb-4">FORGED IN <span class="text-primary italic">CODE</span></h2>
+<p class="text-on-surface-variant font-light max-w-xl mx-auto">The precision tools I use to bring architectural visions to life.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+<!-- Tech Card Template -->
+<div class="glass-card p-10 rounded-2xl flex flex-col items-center justify-center text-center group hover:bg-surface-container-high transition-all duration-500 cursor-default border border-outline-variant/10">
+<div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="settings_ethernet">settings_ethernet</span>
+</div>
+<h4 class="font-headline font-bold text-lg">Next.js</h4>
+<span class="text-[10px] text-primary/60 font-label tracking-widest uppercase mt-2">Full Stack</span>
+</div>
+<div class="glass-card p-10 rounded-2xl flex flex-col items-center justify-center text-center group hover:bg-surface-container-high transition-all duration-500 cursor-default border border-outline-variant/10">
+<div class="w-16 h-16 bg-secondary/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-secondary/20 transition-all">
+<span class="material-symbols-outlined text-4xl text-secondary" data-icon="deployed_code">deployed_code</span>
+</div>
+<h4 class="font-headline font-bold text-lg">React</h4>
+<span class="text-[10px] text-secondary/60 font-label tracking-widest uppercase mt-2">Frontend</span>
+</div>
+<div class="glass-card p-10 rounded-2xl flex flex-col items-center justify-center text-center group hover:bg-surface-container-high transition-all duration-500 cursor-default border border-outline-variant/10">
+<div class="w-16 h-16 bg-tertiary/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-tertiary/20 transition-all">
+<span class="material-symbols-outlined text-4xl text-tertiary" data-icon="brush">brush</span>
+</div>
+<h4 class="font-headline font-bold text-lg">Tailwind</h4>
+<span class="text-[10px] text-tertiary/60 font-label tracking-widest uppercase mt-2">Styling</span>
+</div>
+<div class="glass-card p-10 rounded-2xl flex flex-col items-center justify-center text-center group hover:bg-surface-container-high transition-all duration-500 cursor-default border border-outline-variant/10">
+<div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="database">database</span>
+</div>
+<h4 class="font-headline font-bold text-lg">Supabase</h4>
+<span class="text-[10px] text-primary/60 font-label tracking-widest uppercase mt-2">Backend</span>
+</div>
+<div class="glass-card p-10 rounded-2xl flex flex-col items-center justify-center text-center group hover:bg-surface-container-high transition-all duration-500 cursor-default border border-outline-variant/10">
+<div class="w-16 h-16 bg-secondary/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-secondary/20 transition-all">
+<span class="material-symbols-outlined text-4xl text-secondary" data-icon="terminal">terminal</span>
+</div>
+<h4 class="font-headline font-bold text-lg">TypeScript</h4>
+<span class="text-[10px] text-secondary/60 font-label tracking-widest uppercase mt-2">Language</span>
+</div>
+<div class="glass-card p-10 rounded-2xl flex flex-col items-center justify-center text-center group hover:bg-surface-container-high transition-all duration-500 cursor-default border border-outline-variant/10">
+<div class="w-16 h-16 bg-tertiary/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-tertiary/20 transition-all">
+<span class="material-symbols-outlined text-4xl text-tertiary" data-icon="javascript">javascript</span>
+</div>
+<h4 class="font-headline font-bold text-lg">Node.js</h4>
+<span class="text-[10px] text-tertiary/60 font-label tracking-widest uppercase mt-2">Runtime</span>
+</div>
+<div class="glass-card p-10 rounded-2xl flex flex-col items-center justify-center text-center group hover:bg-surface-container-high transition-all duration-500 cursor-default border border-outline-variant/10">
+<div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="storage">storage</span>
+</div>
+<h4 class="font-headline font-bold text-lg">PostgreSQL</h4>
+<span class="text-[10px] text-primary/60 font-label tracking-widest uppercase mt-2">Database</span>
+</div>
+<div class="glass-card p-10 rounded-2xl flex flex-col items-center justify-center text-center group hover:bg-surface-container-high transition-all duration-500 cursor-default border border-outline-variant/10">
+<div class="w-16 h-16 bg-secondary/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-secondary/20 transition-all">
+<span class="material-symbols-outlined text-4xl text-secondary" data-icon="cloud">cloud</span>
+</div>
+<h4 class="font-headline font-bold text-lg">Firebase</h4>
+<span class="text-[10px] text-secondary/60 font-label tracking-widest uppercase mt-2">Cloud</span>
+</div>
+</div>
+</section>
+<!-- 4. PROJECTS -->
+<section class="min-h-screen py-32 px-6 lg:px-24 bg-surface-container-lowest" id="projects">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
+<h2 class="font-headline text-6xl md:text-8xl font-bold tracking-tighter max-w-lg leading-none">
+                    CURATED <span class="text-tertiary">WORK</span>
+</h2>
+<p class="text-on-surface-variant max-w-sm font-light text-lg">
+                    A selection of precision-built applications focused on performance and aesthetic depth.
+                </p>
+</div>
+<div class="grid grid-cols-1 gap-32 max-w-6xl mx-auto">
+<!-- Project 1 -->
+<div class="flex flex-col lg:flex-row gap-16 items-center">
+<div class="w-full lg:w-3/5 group relative overflow-hidden rounded-3xl aspect-video bg-surface-container-high">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-90" data-alt="Futuristic software dashboard with neon blue data visualizations, holographic charts, and clean dark interface on high-end computer screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTKaffKml__LUgc7mWesq9PEwbAnFP2dfOiZaCDeiiislnZFGzwqOjdxd0o0MZxkFt3BTxxWLvQxcypUC8BvtjCeis3FR6HYJT_Iq3xUi4IPM-qUpZHDOvxlIYkl1tyLbz65lZLEjshZP9DFBUOnxOmn0RUDLhtrH77N2gTZ6jGRT8saxKwscg83emmKZSMs_WGzSQz-_qcp9gdBA-zCFVcSjxrky_40UO5ePBVEwFbH_XhPYPTUC0gXK1AldyoE1kul5KH4i0UYGS"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+</div>
+<div class="w-full lg:w-2/5">
+<div class="flex gap-2 mb-6">
+<span class="bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded-full text-[10px] font-label uppercase tracking-widest">Next.js</span>
+<span class="bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded-full text-[10px] font-label uppercase tracking-widest">PostgreSQL</span>
+</div>
+<h3 class="font-headline text-4xl font-bold mb-6">Insight Event Website</h3>
+<p class="text-on-surface-variant leading-relaxed mb-8 text-lg">A full-featured event management platform featuring real-time ticketing, QR code check-ins, and dynamic seat allocation.</p>
+<div class="flex gap-4">
+<button class="bg-primary-container text-white px-6 py-3 rounded-xl font-headline font-bold text-sm">View Case Study</button>
+<button class="text-on-surface border border-outline-variant/30 px-6 py-3 rounded-xl font-headline font-bold text-sm hover:border-outline transition-all">GitHub</button>
+</div>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="flex flex-col lg:flex-row-reverse gap-16 items-center">
+<div class="w-full lg:w-3/5 group relative overflow-hidden rounded-3xl aspect-video bg-surface-container-high">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-90" data-alt="Digital analytic software interface showing complex graphs and neon pink data points against a pitch-black background aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiNGaOoChk79X-7n04vg5XNbFDfA6QHldQcPCnKuBBZ1kzC-i9C2zX5ralaEWJY6JY6z2Rnhu3EMlRF1thBHZ5mxMvOo_fNZhtgiP-8Pvhl6QePRWzDpG_6hONQFWwBiK51-EI-ZydyoDK55jVRECpe7IdLonjOIIIwA62XGJWR81TggBi6OHaQa_vQRGW0sXyWr3tXiuo3kxf68TljnBk5Yjyk3Q0iNmn7cNh-tlHUeWBopdbqlDtxKmEhlZxyX2JTubkhM0S_9cc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+</div>
+<div class="w-full lg:w-2/5">
+<div class="flex gap-2 mb-6">
+<span class="bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded-full text-[10px] font-label uppercase tracking-widest">React</span>
+<span class="bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded-full text-[10px] font-label uppercase tracking-widest">Firebase</span>
+</div>
+<h3 class="font-headline text-4xl font-bold mb-6">Personal Dashboard</h3>
+<p class="text-on-surface-variant leading-relaxed mb-8 text-lg">A minimalist productivity hub with focus timers, habit tracking, and integrated calendar functionality using a custom dark theme.</p>
+<div class="flex gap-4">
+<button class="bg-secondary-container text-white px-6 py-3 rounded-xl font-headline font-bold text-sm">Live Demo</button>
+<button class="text-on-surface border border-outline-variant/30 px-6 py-3 rounded-xl font-headline font-bold text-sm">GitHub</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. CONTENT ADDER / FEED -->
+<section class="py-32 px-6 lg:px-24 bg-surface relative">
+<div class="max-w-4xl mx-auto">
+<div class="glass-card p-12 rounded-3xl mb-16 border border-outline-variant/10">
+<h3 class="font-headline text-3xl font-bold mb-8 flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary" data-icon="chat_bubble">chat_bubble</span>
+                        Quick Updates
+                    </h3>
+<div class="relative">
+<textarea class="w-full bg-surface-container-low border-b-2 border-outline-variant/30 focus:border-tertiary focus:ring-0 text-on-surface py-4 px-0 resize-none h-32 transition-all placeholder:text-neutral-600 font-body" maxlength="500" placeholder="What's on your mind? (Tech, Art, Philosophy...)"></textarea>
+<div class="flex justify-between items-center mt-6">
+<span class="text-[10px] text-neutral-500 font-label tracking-widest uppercase">0 / 500 characters</span>
+<button class="bg-tertiary text-on-tertiary font-headline font-black px-10 py-3 rounded-xl hover:scale-105 transition-all text-sm uppercase">Post</button>
+</div>
+</div>
+</div>
+<!-- Feed -->
+<div class="space-y-6">
+<div class="glass-card p-8 rounded-2xl border-l-4 border-primary/40">
+<div class="flex justify-between items-start mb-4">
+<span class="font-headline font-bold text-primary">Curator's Thought</span>
+<span class="text-[10px] text-neutral-500 uppercase tracking-tighter">2 hours ago</span>
+</div>
+<p class="text-on-surface-variant leading-relaxed">Just optimized the server-side rendering for the new portfolio module. The LCP improvement is night and day. Web vitals are the silent hero of UX.</p>
+</div>
+<div class="glass-card p-8 rounded-2xl border-l-4 border-secondary/40">
+<div class="flex justify-between items-start mb-4">
+<span class="font-headline font-bold text-secondary">Tech Update</span>
+<span class="text-[10px] text-neutral-500 uppercase tracking-tighter">Yesterday</span>
+</div>
+<p class="text-on-surface-variant leading-relaxed">Experimenting with three.js shaders for the hero section. There's something hypnotic about procedurally generated light leaks.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. CONTACT / FOOTER -->
+<section class="min-h-[819px] flex flex-col items-center justify-center text-center px-6 py-32 bg-surface-container-lowest" id="contact">
+<h2 class="font-headline text-5xl md:text-8xl font-bold tracking-tighter mb-12 max-w-4xl leading-tight">
+                LET'S BUILD <br/> <span class="text-primary-container">SOMETHING</span> TOGETHER
+            </h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 w-full max-w-4xl mb-24">
+<div class="flex flex-col items-center group">
+<div class="w-14 h-14 rounded-full bg-surface-container flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined text-primary" data-icon="mail">mail</span>
+</div>
+<span class="font-headline font-bold text-lg">hello@neoncurator.dev</span>
+<span class="text-[10px] text-neutral-500 uppercase mt-1">Direct Email</span>
+</div>
+<div class="flex flex-col items-center group">
+<div class="w-14 h-14 rounded-full bg-surface-container flex items-center justify-center mb-4 group-hover:bg-secondary/20 transition-all">
+<span class="material-symbols-outlined text-secondary" data-icon="location_on">location_on</span>
+</div>
+<span class="font-headline font-bold text-lg">Karnal, India</span>
+<span class="text-[10px] text-neutral-500 uppercase mt-1">Location</span>
+</div>
+<div class="flex flex-col items-center group">
+<div class="w-14 h-14 rounded-full bg-surface-container flex items-center justify-center mb-4 group-hover:bg-tertiary/20 transition-all">
+<span class="material-symbols-outlined text-tertiary" data-icon="event_available">event_available</span>
+</div>
+<span class="font-headline font-bold text-lg">Available Now</span>
+<span class="text-[10px] text-neutral-500 uppercase mt-1">Status</span>
+</div>
+</div>
+<footer class="w-full py-20 flex flex-col items-center text-center gap-4 w-full bg-surface-container-lowest border-t border-outline-variant/10">
+<div class="font-space-grotesk font-black text-pink-500 text-2xl uppercase tracking-tighter mb-4">The Neon Curator</div>
+<div class="flex gap-8 mb-10">
+<a class="text-neutral-500 hover:text-cyan-400 transition-colors font-headline font-bold uppercase text-xs" href="#">LinkedIn</a>
+<a class="text-neutral-500 hover:text-cyan-400 transition-colors font-headline font-bold uppercase text-xs" href="#">GitHub</a>
+<a class="text-neutral-500 hover:text-cyan-400 transition-colors font-headline font-bold uppercase text-xs" href="#">Dribbble</a>
+<a class="text-neutral-500 hover:text-cyan-400 transition-colors font-headline font-bold uppercase text-xs" href="#">Twitter</a>
+</div>
+<div class="text-neutral-500 font-inter text-sm leading-relaxed max-w-sm">
+                    © 2024 The Neon Curator. Engineered with precision. <br/>
+<div class="flex gap-4 justify-center mt-4">
+<a class="hover:text-pink-400 transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-pink-400 transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+</section>
+</main>
+<!-- Map for location -->
+<div class="hidden" data-location="Karnal, India" style=""></div>
+</body></html>
